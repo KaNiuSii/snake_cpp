@@ -24,6 +24,8 @@ public:
     void snake_draw();
     void end();
     void setup();
+    void disp_paused();
+    void disp_level();
 };
 
 #endif //W_SNAKE_H

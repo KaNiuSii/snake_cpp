@@ -18,14 +18,8 @@ void Snake::start() {
 }
 
 void Snake::setup() {
-    char l[] = "level";
-    for (int i = 1; i < 6; i++)
-    {
-        setChar(0,i,l[i - 1]);
-        setChar(0,i+1,':');
-    }
-    setChar(0,7,char(level + '0'));
-    speed = 16;
+    disp_level();
+    speed = 14;
     level = 0;
     paused = true;
     head = Vector2D(2, 15);
@@ -34,9 +28,16 @@ void Snake::setup() {
     generateFood();
 }
 
-void Snake::end() {
-    snake_nodes.clear();
-    paused = true;
+void Snake::disp_level() {
+    char l[50];
+    snprintf(l, sizeof(l), "LEVEL: %d ", level);
+    for (int i = 0; l[i] != '\0'; i++)
+    {
+        setChar(0,i + 1,l[i]);
+    }
+}
+
+void Snake::disp_paused() {
     char l[50];
     snprintf(l, sizeof(l), "Your level: %d", level);
     for (int i = 0; l[i] != '\0'; i++) {
@@ -46,6 +47,12 @@ void Snake::end() {
     for (int i = 0; l[i] != '\0'; i++) {
         setChar(6, i + 6, l[i]);
     }
+}
+
+void Snake::end() {
+    snake_nodes.clear();
+    paused = true;
+    disp_paused();
     setup();
 }
 
@@ -97,10 +104,9 @@ void Snake::update() {
         if(snake_nodes.size() % 2 == 0)
         {
             speed--;
-            if (speed <= 8) speed = 9;
+            if(speed < 5) speed = 5;
             level++;
         }
-        setChar(0,7,char(level + '0'));
     }
     if(head.getX() >= 9)
     {
@@ -120,6 +126,8 @@ void Snake::update() {
     }
     snake_nodes.push_back(head);
     snake_draw();
+    disp_level();
+
 }
 
 void Snake::snake_draw()
