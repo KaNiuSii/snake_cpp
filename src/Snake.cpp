@@ -19,7 +19,7 @@ void Snake::start() {
 
 void Snake::setup() {
     disp_level();
-    speed = 14;
+    speed = 12;
     level = 0;
     paused = true;
     head = Vector2D(2, 15);
@@ -104,7 +104,7 @@ void Snake::update() {
         if(snake_nodes.size() % 2 == 0)
         {
             speed--;
-            if(speed < 5) speed = 5;
+            if(speed < 3) speed = 3;
             level++;
         }
     }
