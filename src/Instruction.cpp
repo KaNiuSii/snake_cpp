@@ -1,6 +1,6 @@
 #include "Instruction.h"
 
-Instruction::Instruction() : Moveable(7, 19, ' ', Vector2D(70,8)) {}
+Instruction::Instruction() : Moveable(7, 19, ' ', Vector2D(75,6)) {}
 
 void Instruction::start() {
     for (int i = 0; i < 7; ++i) {

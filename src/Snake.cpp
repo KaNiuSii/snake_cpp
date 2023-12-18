@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-Snake::Snake() : Moveable(10, 30, ' ', Vector2D(20,5)) {}
+Snake::Snake() : Moveable(10, 30, ' ', Vector2D(33,5)) {}
 
 void Snake::start() {
     for (int i = 0; i < 10; ++i) {
