@@ -192,8 +192,8 @@ void Snake::handleEvent(int ch) {
 void Snake::generateFood() {
     while (1)
     {
-        food.setX(snake_nodes.front().getX() - dir.getX() + rand() % 5 - 1);
-        food.setY(snake_nodes.front().getY() - dir.getY() + rand() % 5 - 1);
+        food.setX(rand() % 9);
+        food.setY(rand() % 28);
         if(food.getX() >= 8)
         {
             food.setX(1);
