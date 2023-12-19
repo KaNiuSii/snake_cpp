@@ -105,8 +105,8 @@ void Snake::update() {
         {
             speed--;
             if(speed < 3) speed = 3;
-            level++;
         }
+        level++;
     }
     if(head.getX() >= 9)
     {
